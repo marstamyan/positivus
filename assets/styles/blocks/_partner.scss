@@ -1,0 +1,19 @@
+.partner {
+  padding-block: var(--section-padding-y);
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 38px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  &__img {
+    filter: grayscale(1);
+    transition: filter 0.2s ease-in-out;
+
+    &:hover {
+      filter: grayscale(0);
+    }
+  }
+}

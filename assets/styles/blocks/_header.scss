@@ -1,0 +1,36 @@
+.header {
+  @include fluid-padding(20, 60);
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 40px;
+  }
+
+  &-nav {
+    margin-left: auto;
+  }
+}
+
+.menu-nav__list-link {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 2.5px;
+    width: 0;
+    background: var(--color-accent);
+    transition: width 0.25s ease-in;
+  }
+
+  @include hover {
+    &::after {
+      width: 100%;
+    }
+  }
+}

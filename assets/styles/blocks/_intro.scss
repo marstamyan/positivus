@@ -1,0 +1,31 @@
+.intro {
+  padding-block: var(--section-padding-y);
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    column-gap: 30px;
+  }
+
+  &__content {
+    max-width: 531px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    row-gap: 35px;
+  }
+
+  &__title {
+    @include fluid-font(24, 60);
+  }
+
+  &__text {
+    @include fluid-font(16, 20);
+    line-height: 140%;
+  }
+
+  &__img {
+    display: flex;
+    justify-content: center;
+  }
+}

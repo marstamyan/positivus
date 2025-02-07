@@ -1,0 +1,31 @@
+.info-wrapper {
+  padding: 60px;
+  background-color: var(--color-gray);
+  border-radius: var(--border-radius-large);
+}
+
+.info-wrapper {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 30px;
+}
+
+.info-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 26px;
+  max-width: 500px;
+}
+
+.info-title {
+  @include fluid-font(20, 30);
+}
+
+.info-text {
+  @include fluid-font(16, 20);
+}
+
+.info-media__img {
+  margin-block: -80px;
+}

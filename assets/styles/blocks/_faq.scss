@@ -1,0 +1,130 @@
+.qna {
+  --qna-animation-duration: 0.3s;
+  --qna-details-height: 200px;
+  width: clamp(300px, 90%, 1234px);
+  margin: 80px auto;
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+  }
+
+  &__item {
+    border-radius: var(--border-radius-large);
+    margin: -1px 0 0;
+    background-color: var(--color-gray);
+    border: 1px solid var(--color-dark);
+    transition: var(--qna-animation-duration);
+    box-shadow: var(--shadow);
+    transition: var(--transition-bg);
+
+    &:hover {
+      background-color: var(--color-accent);
+    }
+
+    &:not(.js-details)[open],
+    &.is-open {
+      background: var(--color-accent);
+      --qna-border-color: #777;
+      position: relative;
+
+      .qna__text p {
+        border-top: 1px solid var(--color-dark);
+      }
+    }
+  }
+
+  &__question {
+    @include fluid-font(20, 30);
+    display: flex;
+    align-items: center;
+    padding: 40px 60px;
+    position: relative;
+    list-style: none;
+    cursor: pointer;
+    user-select: none;
+
+    span {
+      font-size: 2em;
+      padding-right: 20px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 30%;
+      right: 5%;
+      width: 22.5px;
+      height: 15px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 12 8'%3E%3Cpath stroke='%23999' stroke-width='2' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+      transition: var(--qna-animation-duration);
+      filter: invert(1);
+      background-color: #000000;
+      padding: 30px;
+      background-repeat: no-repeat;
+      background-position: center;
+      border-radius: 50%;
+      background-size: 50%;
+
+      .qna__item:not(.js-details)[open] &,
+      .qna__item.is-open & {
+        transform: rotate(-180deg);
+      }
+    }
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+
+  &__answer {
+    .js-details & {
+      max-height: 0;
+      overflow: hidden;
+      animation: slideUp var(--qna-animation-duration);
+    }
+
+    .js-details.is-open & {
+      max-height: none;
+      animation: slideDown var(--qna-animation-duration);
+    }
+
+    .js-details.is-open.is-animating & {
+      max-height: var(--qna-details-height);
+    }
+  }
+
+  &__text {
+    height: 100%;
+    padding-inline: 60px;
+    p {
+      padding-block: 30px;
+      margin-top: 0;
+    }
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    max-height: var(--qna-details-height);
+    opacity: 1;
+  }
+
+  100% {
+    max-height: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    max-height: 0;
+    opacity: 0;
+  }
+
+  100% {
+    max-height: var(--qna-details-height);
+    opacity: 1;
+  }
+}

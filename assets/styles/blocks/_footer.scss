@@ -1,0 +1,117 @@
+.footer {
+  background-color: var(--color-dark);
+  padding: 55px 60px;
+  margin-top: 60px;
+  color: var(--color-light);
+  border-top-left-radius: var(--border-radius-large);
+  border-top-right-radius: var(--border-radius-large);
+
+  a {
+    transition: var(--transition-color);
+    &:hover {
+      color: var(--color-accent);
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 30px;
+    margin-bottom: 60px;
+  }
+
+  &__contact {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 30px;
+    margin-bottom: 50px;
+  }
+
+  &__contact-block {
+    max-width: 332px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    row-gap: 20px;
+
+    span {
+      line-height: 1.6;
+    }
+  }
+
+  &__contact-title {
+    font-weight: 500;
+    font-size: 20px;
+    background-color: var(--color-accent);
+    border-radius: var(--border-radius-small);
+    padding: 7px;
+    color: var(--color-dark);
+    margin-bottom: 27px;
+  }
+
+  &__subscribe {
+    max-width: 634px;
+    width: 100%;
+    background-color: var(--color-dark-alt);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--border-radius);
+    padding: 20px;
+  }
+
+  &__subscribe-form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 20px;
+
+    input {
+      background-color: transparent;
+      border: 1px solid var(--color-light);
+      border-radius: var(--border-radius);
+      height: 67px;
+      max-width: 285px;
+      width: 100%;
+      color: var(--color-light);
+      padding: 22px;
+    }
+
+    .btn {
+      color: var(--color-dark);
+      background-color: var(--color-accent);
+
+      &:hover {
+        background-color: var(--color-dark);
+        color: var(--color-light);
+      }
+    }
+  }
+
+  &__copyright {
+    border-top: 1px solid var(--color-light);
+    padding-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+}
+
+.socials {
+  display: flex;
+  column-gap: 20px;
+}
+
+.socials-item {
+  img {
+    transition: transform 0.3s ease-in;
+
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: none;
+    }
+  }
+}

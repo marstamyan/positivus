@@ -1,0 +1,58 @@
+.team {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+
+  &__item {
+    flex: 1 1 calc(33.3% - 60px);
+    border: 1px solid var(--color-dark);
+    border-radius: var(--border-radius-large);
+    padding: 40px 35px;
+    box-shadow: var(--shadow);
+
+    &-meta {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      column-gap: 20px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--color-dark);
+    }
+
+    &-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-link {
+      position: absolute;
+      top: 0;
+      right: 0;
+      transition: transform 0.3s ease-in-out;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    &-name {
+      font-weight: 500;
+      font-size: 20px;
+    }
+
+    &-position {
+      font-size: 20px;
+    }
+
+    &-desc {
+      padding-top: 28px;
+    }
+  }
+}
+
+.team-btn {
+  margin-top: 40px;
+  display: flex;
+  justify-content: flex-end;
+}

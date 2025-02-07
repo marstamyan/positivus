@@ -1,0 +1,105 @@
+.services-section {
+  padding-block: var(--section-padding-y);
+}
+
+.section-meta {
+  display: flex;
+  align-items: center;
+  column-gap: 40px;
+}
+
+.services {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+
+  &__item {
+    display: flex;
+    flex: 0 0 48%;
+    box-shadow: var(--shadow);
+    transition: box-shadow 0.3s ease;
+    padding: 50px;
+    min-height: 310px;
+    border-radius: var(--border-radius-large);
+    column-gap: 30px;
+
+    &:hover {
+      box-shadow: var(--shadow-hover);
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+    transition: var(--transition-color);
+
+    &:hover {
+      color: var(--color-gray-alt);
+    }
+
+    img {
+      background-color: var(--color-dark);
+      padding: 7px;
+      border-radius: 50%;
+    }
+  }
+
+  &__title {
+    @include fluid-font(20, 30);
+    display: inline;
+    line-height: 1.25;
+
+    span {
+      padding-inline: 7px;
+      border-radius: var(--border-radius-small);
+    }
+  }
+
+  &__item-meta {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+.services__item:nth-child(6n + 1),
+.services__item:nth-child(6n + 4) {
+  background-color: var(--color-gray);
+}
+
+/* Первая карточка - Серый */
+.services__item:nth-child(6n + 1) .services__title span,
+.services__item:nth-child(6n + 4) .services__title span {
+  background: var(--color-accent);
+}
+
+/* Вторая и пятая карточка - Зеленый */
+.services__item:nth-child(6n + 2),
+.services__item:nth-child(6n + 5) {
+  background-color: var(--color-accent);
+}
+
+.services__item:nth-child(6n + 3) .services__title span,
+.services__item:nth-child(6n + 6) .services__title span,
+.services__item:nth-child(6n + 2) .services__title span,
+.services__item:nth-child(6n + 5) .services__title span {
+  background: var(--color-light);
+}
+
+/* Третья и шестая карточка - Черный */
+.services__item:nth-child(6n + 3),
+.services__item:nth-child(6n + 6) {
+  background-color: var(--color-dark-alt);
+
+  .services__link {
+    color: var(--color-light);
+  }
+}
+
+.services__item:nth-child(6n + 3) .services__title span,
+.services__item:nth-child(6n + 6) .services__title span {
+  background: var(--color-light);
+}

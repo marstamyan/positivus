@@ -1,0 +1,130 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @include fluid-font(16, 18);
+  font-family: var(--font-family);
+  font-weight: 400;
+  line-height: 1.28;
+  color: var(--color-dark);
+  background-color: var(--color-light);
+}
+
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      @content;
+    }
+  }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 500;
+}
+
+h1,
+.h1 {
+  @include fluid-font(43, 60);
+}
+
+h2,
+.h2 {
+  @include fluid-font(36, 40);
+}
+
+h3,
+.h3 {
+  @include fluid-font(26, 30);
+}
+
+h4,
+.h4 {
+  @include fluid-font(18, 20);
+}
+
+.container {
+  max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+  padding-inline: var(--container-padding-x);
+  margin-inline: auto;
+}
+
+.logo {
+  width: 210px;
+  height: 36px;
+}
+
+.btn {
+  border: none;
+  height: var(--button-height);
+  margin: 0;
+  padding-inline: 35px;
+  width: auto;
+  overflow: visible;
+  outline: none;
+  text-align: center;
+  background: var(--color-dark);
+  color: var(--color-light);
+  line-height: normal;
+  cursor: pointer;
+  white-space: nowrap;
+  border-radius: var(--border-radius);
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-bg), var(--transition-color),
+    box-shadow 0.3s ease-in-out;
+
+  @include hover {
+    background-color: var(--color-accent);
+    color: var(--color-dark);
+    box-shadow: var(--shadow);
+  }
+}
+
+.menu-nav__list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 40px;
+
+  &-link {
+    font-size: 20px;
+    line-height: 140%;
+  }
+}
+
+.section {
+  padding-block: var(--section-padding-y);
+
+  &-text {
+    @include fluid-font(16, 20);
+    line-height: 140%;
+  }
+
+  &-title {
+    @include fluid-font(26, 51);
+    background: var(--color-accent);
+    padding: 0px 7px;
+    border-radius: var(--border-radius-small);
+  }
+
+  &-description {
+    @include fluid-font(16, 18);
+    max-width: 580px;
+  }
+
+  &-meta {
+    margin-bottom: 80px;
+  }
+}
