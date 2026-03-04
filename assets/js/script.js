@@ -117,4 +117,52 @@
   if (actionsContainer && pagination) {
     actionsContainer.insertBefore(pagination, actionsContainer.children[1])
   }
+
+  // Stats count-up animation
+  const statsObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return
+        const el = entry.target
+        const target = parseInt(el.dataset.target, 10)
+        const duration = 2000
+        const step = target / (duration / 16)
+        let current = 0
+        const timer = setInterval(() => {
+          current += step
+          if (current >= target) {
+            el.textContent = target
+            clearInterval(timer)
+          } else {
+            el.textContent = Math.floor(current)
+          }
+        }, 16)
+        statsObserver.unobserve(el)
+      })
+    },
+    { threshold: 0.5 },
+  )
+
+  document.querySelectorAll(".stats__number").forEach((el) => {
+    statsObserver.observe(el)
+  })
+
+  // Back to Top
+  const backToTopBtn = document.getElementById("backToTop")
+  if (backToTopBtn) {
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (window.scrollY > 400) {
+          backToTopBtn.classList.add("is-visible")
+        } else {
+          backToTopBtn.classList.remove("is-visible")
+        }
+      },
+      { passive: true },
+    )
+    backToTopBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" })
+    })
+  }
 })()
